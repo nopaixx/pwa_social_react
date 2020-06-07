@@ -18,6 +18,9 @@
     "firebase-functions": "^3.6.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/register": "^7.10.1",
     "firebase-functions-test": "^0.2.0"
   },
   "private": true
