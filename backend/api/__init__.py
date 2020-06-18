@@ -2,6 +2,7 @@ import sys
 import os
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from api.config import Config
 from flask_migrate import Migrate
 from api.database import db
@@ -11,10 +12,7 @@ app = Flask(__name__)
 # app.init_app(Config)
 app.config.from_object(Config)
 
-a = os.environ.get("DATABASE_URL", "sqlite://")
-
-print(a, file=sys.stderr)
-
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 db.init_app(app)
 
 migrate = Migrate(app, db)

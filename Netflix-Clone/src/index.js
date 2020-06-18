@@ -18,12 +18,14 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // - implement carousel
 // - fix modal backdrop bug
 // - add routing and 404 page
+
+// TODO ANGEL PROVIDE THE SUBDOMAIN TO THE APP
 const app = (
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+	<Provider store={createStoreWithMiddleware(reducers)}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</Provider>
 );
 
 ReactDOM.render(app, document.getElementById('app'));
