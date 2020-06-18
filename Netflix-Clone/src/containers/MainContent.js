@@ -16,87 +16,55 @@ class MainContent extends Component {
 		selectedMovie: {}
 	};
 
-	componentDidMount = () => {
-		this.getMovie();
-		this.getYoutubeMovies();
-	};
-
-	getYoutubeMovies = () => {
-		//const url = 'http://127.0.0.1:5000/channel/domain/cdciencia';
-		const url = 'http://192.168.1.59:5000/channel/domain/cdciencia';
-		axios.get(url)
-			.then(res => {
-				const youtube_data = res.data;
-				this.setState({
-					youtube: youtube_data.youtube
-				});
-			})
-			.catch(error => {
-				console.log('Error getting playlist', err);
-			});
-	};
-	getMovie = () => {
-		/** Movie Id for the Narcos series  */
-		const movieId = 63351;
-		/** Make Api call to retrieve the details for a single movie  */
-		const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${process.env.API_KEY}`;
-		axios.get(url)
-			.then(res => {
-				const movieData = res.data;
-				this.setState({ selectedMovie: movieData });
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	};
-
 	render() {
-		console.log(this.state);
 		const titleRecent = 'RECENT VIDEOS';
 		const titlePremium = 'PREMIUM CONTENT';
 		return (
 			<div className="container">
 				<Header
 					movie={
-						this.state.youtube &&
-						this.state.youtube.header
-							? this.state.youtube
+						this.props.youtube &&
+						this.props.youtube.header
+							? this.props.youtube
 									.header
 							: undefined
 					}
 				/>
 				<div className="movieShowcase">
 					<PinnedList
+						history={this.props.history}
 						title={titlePremium}
 						movies={
-							this.state.youtube &&
-							this.state.youtube
+							this.props.youtube &&
+							this.props.youtube
 								.premium_content
-								? this.state
+								? this.props
 										.youtube
 										.premium_content
 								: undefined
 						}
 					/>
 					<PinnedList
+						history={this.props.history}
 						title={titleRecent}
 						movies={
-							this.state.youtube &&
-							this.state.youtube
+							this.props.youtube &&
+							this.props.youtube
 								.latest_videos
-								? this.state
+								? this.props
 										.youtube
 										.latest_videos
 								: undefined
 						}
 					/>
 
-					{this.state.youtube &&
-					this.state.youtube.playlist_list
-						? this.state.youtube.playlist_list.items.map(
+					{this.props.youtube &&
+					this.props.youtube.playlist_list
+						? this.props.youtube.playlist_list.items.map(
 								element => {
 									return (
 										<ChannelList
+											history={this.props.history}
 											play_list={
 												element
 											}

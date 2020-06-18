@@ -116,13 +116,30 @@ class Layout extends Component {
 	closeModal = () => {
 		this.setState({ toggleModal: false });
 	};
+	componentDidMount = () => {
+		this.getYoutubeMovies();
+	};
+        getYoutubeMovies = () => {
+                //const url = 'http://127.0.0.1:5000/channel/domain/cdciencia';
+                const url = 'http://95.217.165.113:5000/channel/domain/cdciencia';
+                axios.get(url)
+                        .then(res => {
+                                const youtube_data = res.data;
+                                this.setState({
+                                        youtube: youtube_data.youtube
+                                });
+                        })
+                        .catch(error => {
+                                console.log('Error getting playlist', err);
+                        });
+        };
 
 	render() {
 		return (
 			<div>
-				<Navbar showMovies={this.onSearchHandler} />
+				<Navbar showMovies={this.onSearchHandler} youtube={this.state.youtube}/>
 				{this.state.toggleMovieList ? (
-					<MainContent />
+					<MainContent history={this.props.history} youtube={this.state.youtube}/>
 				) : (
 					<div className="search-container">
 						{this.state.MovieList}

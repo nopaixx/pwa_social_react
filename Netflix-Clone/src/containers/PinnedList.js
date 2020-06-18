@@ -14,7 +14,7 @@ class PinnedList extends Component {
 		let movies;
 		if (this.props.movies) {
 			const url = '';
-			movies = getMovieRows(this.props.movies, url);
+			movies = getMovieRows(this.props.movies, url, this.props.history);
 		}
 		return (
 			<>

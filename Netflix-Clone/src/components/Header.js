@@ -12,14 +12,19 @@ export default function Header(props) {
 		videoName = props.movie.snippet.title;
 	} catch (err) {}
 	const backgroundStyle = {
-		backgroundSize: 'cover',
+		backgroundSize: 'contain',
 		backgroundImage: `url(${videoThum})`,
-		backgroundPosition: 'center'
+		backgroundPosition: 'center',
+		backgroundRepeat: 'no-repeat',
 	};
+	const imageStyle = {
+		width: '100vw',
+//		height: '65rem'
+	}
 
 	console.log(props, backgroundStyle);
 	return (
-		<header style={backgroundStyle} className="header">
+		<header className="header" style={backgroundStyle}>
 			<div className="header__container">
 				<button
 					onClick={() => alert('not a movie!')}
@@ -29,7 +34,10 @@ export default function Header(props) {
 					Play
 				</button>
 			</div>
-			<div className="header--fadeBottom"></div>
 		</header>
 	);
 }
+		//<header style={backgroundStyle} className="header">
+	//	1</header>
+			//<img src={videoThum}/>
+		//	<img src={videoThum} style = {imageStyle}/>

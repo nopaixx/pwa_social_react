@@ -16,7 +16,8 @@ class ChannelList extends Component {
 			const url = '';
 			movies = getMovieRows(
 				this.props.play_list.videos.items,
-				url
+				url,
+				this.props.history
 			);
 		}
 		return (

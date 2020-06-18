@@ -34,32 +34,30 @@ class navigation extends Component {
   render() {
     const { scrolling } = this.state;
     const { showMovies } = this.props;
-
+    console.log("YOUTUBE-",this.props)
+	
+    if(!this.props.youtube){
+    	return ''
+    }
     return (
       <nav className={"navigation " + (scrolling ? "black" : "")} >
         <ul className="navigation__container">
-          <NavigationItem link="/" exact><img className="navigation__container--logo" src={NetflixLogo} alt="" /></NavigationItem>
+          <NavigationItem link="/" exact><img className="navigation__container--logo" src={this.props.youtube.channel_list.items[0].snippet.thumbnails.default.url} alt="" /></NavigationItem>
           <DropdownArrow className="navigation__container--downArrow-2"></DropdownArrow>
-          <div className="navigation__container-link pseudo-link">Home</div>
-          <div className="navigation__container-link pseudo-link">TV Shows</div>
-          <div className="navigation__container-link pseudo-link">Movies</div>
-          <div className="navigation__container-link pseudo-link">Recently Added</div>
-          <div className="navigation__container-link pseudo-link">My List</div>
+          <div className="navigation__container-link pseudo-link">Una seccion puede ir aqui</div>
 
 
           <div className="navigation__container--left">
             <SearchLogo className="logo" />
 
             <input
-              onChange={showMovies}
+              onChange={()=>{}}
               className="navigation__container--left__input"
               type="text"
               placeholder="Title, genres, people" />
 
           </div>
 
-          <div className="navigation__container-link pseudo-link">KIDS</div>
-          <div className="navigation__container-link pseudo-link">DVD</div>
           <BellLogo className="navigation__container--bellLogo" />
 
           <DropdownContent />

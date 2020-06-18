@@ -1,7 +1,7 @@
 import MovieGenre from './components/MovieGenre';
 import React from 'react';
 
-export function getMovieRows(movies, url) {
+export function getMovieRows(movies, url, history) {
 	const movieRow = movies.map(movie => {
 		/*
 		let movieImageUrl =
@@ -22,6 +22,7 @@ export function getMovieRows(movies, url) {
 		//if (movie.poster_path && movie.backdrop_path !== null) {
 		const movieComponent = (
 			<MovieGenre
+				history={history}
 				key={movieId}
 				url={url}
 				posterUrl={movieImageUrl}
