@@ -1,39 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reducers from './store/reducers';
-import promise from 'redux-promise';
 
-import App from './containers/App';
+
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import thunkMiddleware from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
+
+
+import rootReducer from './reducers/index'
+
+import App_container from './containers/App_container';
 import MovieView from './components/MovieView';
 // Import main sass file to apply global styles
 import './static/sass/style.scss';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 import { createBrowserHistory } from "history";
 //import history from "history";
 const history = createBrowserHistory();
 
-// TODO
-// - fix styling issue
-// - implemented debouncing
-// - implement carousel
-// - fix modal backdrop bug
-// - add routing and 404 page
 
-// TODO ANGEL PROVIDE THE SUBDOMAIN TO THE APP
+const store = createStore(
+  rootReducer,
+  applyMiddleware(
+    thunkMiddleware
+  )
+)
+
+
 const app = (
-	<Provider store={createStoreWithMiddleware(reducers)}>
-	<BrowserRouter>
+	<Provider store={store}>
+		<BrowserRouter>
 				<Switch>
-					<Route exact path="/" component={App} />
+					<Route exact path="/" component={App_container} />
 					<Route path="/view/:videoId" exact={true} component={MovieView} />
 	
-					<Route path="/404" component={App} />
 				</Switch>
-	</BrowserRouter>
+		</BrowserRouter>
 	</Provider>
 );
 

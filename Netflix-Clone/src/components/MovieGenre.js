@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
 import Modal from '../components/UI/Modal';
 import MovieDetails from '../components/Movie/MovieDetails';
 
+import { withRouter } from "react-router";
 
-export default class MovieGenre extends Component{
+class MovieGenre extends Component{
 		constructor(props){
 			 super(props)
 		}
@@ -25,13 +25,4 @@ export default class MovieGenre extends Component{
 			)};
 		
 }
-
-				/*<Modal
-					show={this.state.toggleModal}
-					movie={this.props.movie}
-					modalClosed={this.closeModal}
-				>
-					<MovieDetails
-						movie={this.props.movie}
-					/>
-				</Modal>*/
+export default withRouter(MovieGenre);

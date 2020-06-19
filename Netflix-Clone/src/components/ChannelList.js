@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
-import { fetchTrending } from '../store/actions/index';
 import { getMovieRows } from '../getMovie';
 
 class ChannelList extends Component {
@@ -36,12 +33,4 @@ class ChannelList extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return { trending: state.trending };
-};
-
-const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ fetchTrending }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
+export default ChannelList;

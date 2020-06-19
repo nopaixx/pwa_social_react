@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import axios from '../axios-movies';
 
 import Navbar from './Navbar';
-import MainContent from './MainContent';
+import MainContent_container from '../containers/MainContent_container';
 import Movie from '../components/Movie/Movie';
 import Modal from '../components/UI/Modal';
 import MovieDetails from '../components/Movie/MovieDetails';
+
+import { withRouter } from "react-router";
+
 
 class Layout extends Component {
 	state = {
@@ -116,30 +119,14 @@ class Layout extends Component {
 	closeModal = () => {
 		this.setState({ toggleModal: false });
 	};
-	componentDidMount = () => {
-		this.getYoutubeMovies();
-	};
-        getYoutubeMovies = () => {
-                //const url = 'http://127.0.0.1:5000/channel/domain/cdciencia';
-                const url = 'http://95.217.165.113:5000/channel/domain/cdciencia';
-                axios.get(url)
-                        .then(res => {
-                                const youtube_data = res.data;
-                                this.setState({
-                                        youtube: youtube_data.youtube
-                                });
-                        })
-                        .catch(error => {
-                                console.log('Error getting playlist', err);
-                        });
-        };
 
 	render() {
+		console.log("AL-2Layout", this.props)
 		return (
 			<div>
-				<Navbar showMovies={this.onSearchHandler} youtube={this.state.youtube}/>
+				<Navbar showMovies={this.onSearchHandler} youtube={this.props.youtube}/>
 				{this.state.toggleMovieList ? (
-					<MainContent history={this.props.history} youtube={this.state.youtube}/>
+					<MainContent_container/>
 				) : (
 					<div className="search-container">
 						{this.state.MovieList}
@@ -159,4 +146,4 @@ class Layout extends Component {
 	}
 }
 
-export default Layout;
+export default withRouter(Layout);

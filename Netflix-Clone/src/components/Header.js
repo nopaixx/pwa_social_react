@@ -22,7 +22,7 @@ export default function Header(props) {
 //		height: '65rem'
 	}
 
-	console.log(props, backgroundStyle);
+	console.log("AL-2 Header", props, backgroundStyle);
 	return (
 		<header className="header" style={backgroundStyle}>
 			<div className="header__container">
@@ -37,7 +37,3 @@ export default function Header(props) {
 		</header>
 	);
 }
-		//<header style={backgroundStyle} className="header">
-	//	1</header>
-			//<img src={videoThum}/>
-		//	<img src={videoThum} style = {imageStyle}/>
