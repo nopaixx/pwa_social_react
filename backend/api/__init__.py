@@ -19,7 +19,7 @@ migrate = Migrate(app, db)
 
 @app.route("/")
 def hello_world():
-    return jsonify(hello="world4")
+    return jsonify(hello="world")
 
 
 from api.channelinfo.views import bp as channelinfo

@@ -88,6 +88,18 @@ module.exports = () => {
 					to: 'static/images'
 				}
 			]),
+			new CopyWebpackPlugin([
+				{
+					from: 'src/static/js',
+					to: 'static/js'
+				}
+			]),
+			new CopyWebpackPlugin([
+				{
+					from: 'src/static/html',
+					to: './'
+				}
+			]),
 			new MiniCssExtractPlugin({
 				// Options similar to the same options in webpackOptions.output
 				// both options are optional

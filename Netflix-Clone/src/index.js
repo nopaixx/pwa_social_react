@@ -12,7 +12,7 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers/index'
 
 import App_container from './containers/App_container';
-import MovieView from './components/MovieView';
+import MovieView_container from './containers/MovieView_container';
 // Import main sass file to apply global styles
 import './static/sass/style.scss';
 
@@ -34,7 +34,7 @@ const app = (
 		<BrowserRouter>
 				<Switch>
 					<Route exact path="/" component={App_container} />
-					<Route path="/view/:videoId" exact={true} component={MovieView} />
+					<Route path="/view/:videoId" exact={true} component={MovieView_container} />
 	
 				</Switch>
 		</BrowserRouter>
