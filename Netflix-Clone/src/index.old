@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Hind:400,500,700|Ramabhadra"
+			rel="stylesheet"
+		/>
+		<meta name="theme-color" content="#000000" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Apptoyou</title>
+
+		<script>
+			let host = window.location.host;
+			//			let protocol = window.location.protocol;
+			let parts = host.split('.');
+			let subdomain = '';
+			let backend = '';
+			let port;
+			//https we are running online
+			//http test env
+			/*			if (protocol === 'https:') {
+				// we can do this better with webpack and envars
+				subdomain = parts[0];
+				backend = 'backendyoutubeapp.nextcoder.es';
+				port = 443;
+			} else {
+				// test enviroment
+				backend = '192.168.1.59';
+				subdomain = 'testyoutubeapp';
+				port = 5000;
+			}
+			let url = `${protocol}/\/${backend}:${port}/channel/manifest/${subdomain}`;
+						let urltitle = `${protocol}/\/${backend}:${port}/channel/manifest/${subdomain}`;
+						// dynamic manifest
+						link = document.createElement('link');
+						link.href = url;
+						link.rel = 'manifest';
+						document.getElementsByTagName('head')[0].appendChild(
+							link
+						);
+						fetch(urltitle).then(res => {
+							console.log('HTML-', res);
+						});*/
+		</script>
+		<!-- <link rel="manifest" href="/manifest.json" > -->
+	</head>
+
+	<body>
+		<noscript
+			>You need to enable JavaScript to run this
+			app3.</noscript
+		>
+		<div id="app"></div>
+		<script>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker
+						.register('./serviceworker.js')
+						.then(reg =>
+							console.log(
+								'SW-Success: ',
+								reg.scope
+							)
+						)
+						.catch(error =>
+							console.log(
+								'SW-Error: ',
+								error
+							)
+						);
+				});
+			}
+		</script>
+	</body>
+</html>

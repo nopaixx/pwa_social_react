@@ -53,52 +53,12 @@
 				port +
 				'/channel/title/' +
 				subdomain;
-			let urlIcon =
-				protocol +
-				backend +
-				':' +
-				port +
-				'/channel/icon/' +
-				subdomain;
-			let urlAppleTouch =
-				protocol +
-				backend +
-				':' +
-				port +
-				'/channel/apple-touch-icon/' +
-				subdomain;
 			let link = document.createElement('link');
 			link.href = url;
 			link.rel = 'manifest';
 			document.getElementsByTagName('head')[0].appendChild(
 				link
 			);
-			fetch(urlAppleTouch).then(res => {
-				res.text().then(text => {
-					let linkApple = document.createElement(
-						'link'
-					);
-					linkApple.href = text;
-					linkApple.rel = 'apple-touch-icon';
-					document.getElementsByTagName(
-						'head'
-					)[0].appendChild(linkApple);
-				});
-			});
-
-			fetch(urlIcon).then(res => {
-				res.text().then(text => {
-					let linkIcon = document.createElement(
-						'link'
-					);
-					linkIcon.href = text;
-					linkIcon.rel = 'icon';
-					document.getElementsByTagName(
-						'head'
-					)[0].appendChild(linkIcon);
-				});
-			});
-
 			fetch(urlTitle).then(res => {
 				res.text().then(text => {
 					console.log('HTML-', text);

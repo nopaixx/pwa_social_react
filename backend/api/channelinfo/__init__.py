@@ -30,6 +30,24 @@ class ChannelInfo(db.Model, Model):
 
         db.session.commit()
 
+    def getManifest(self):
+
+        ret = {
+                "short_name": "Youtube channel Name",
+                "name": "Youtube channel Name - long",
+                "icons": [
+                        {
+                           "src": "https://yt3.ggpht.com/a/AATXAJwTUV61MSj2X7gY4UkyRfDbQ1xgQf4mAZfLZA=s800-c-k-c0xffffffff-no-rj-mo",
+                           "type": "image/png",
+                           "sizes": "800x800"
+                        }
+                    ],
+                "start_url": ".",
+                "display": "standalone",
+                "theme_color": "#000000",
+                "background_color": "#ffffff"
+                }
+        return ret
         
 
 class Latest(db.Model, Model):

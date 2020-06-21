@@ -91,7 +91,7 @@ module.exports = () => {
 			new CopyWebpackPlugin([
 				{
 					from: 'src/static/js',
-					to: 'static/js'
+					to: './'
 				}
 			]),
 			new CopyWebpackPlugin([

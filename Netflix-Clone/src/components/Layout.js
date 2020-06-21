@@ -7,8 +7,7 @@ import Movie from '../components/Movie/Movie';
 import Modal from '../components/UI/Modal';
 import MovieDetails from '../components/Movie/MovieDetails';
 
-import { withRouter } from "react-router";
-
+import { withRouter } from 'react-router';
 
 class Layout extends Component {
 	state = {
@@ -81,7 +80,7 @@ class Layout extends Component {
 
 		const userInput = event.target.value;
 		/** Pass in the user input to make the API call. */
-		this.makeAipCall(userInput);
+		//		this.makeAipCall(userInput);
 
 		/** If the input is empty don't display the movie list. */
 		if (userInput === '') {
@@ -121,18 +120,27 @@ class Layout extends Component {
 	};
 
 	render() {
-		console.log("AL-2Layout", this.props)
+		console.log('AL-2Layout', this.props);
 		return (
 			<div>
-				<Navbar showMovies={this.onSearchHandler} youtube={this.props.youtube}/>
+				<Navbar
+					showMovies={this.onSearchHandler}
+					youtube={this.props.youtube}
+				/>
 				{this.state.toggleMovieList ? (
-					<MainContent_container/>
+					<MainContent_container />
 				) : (
 					<div className="search-container">
 						{this.state.MovieList}
 					</div>
 				)}
-				<Modal
+			</div>
+		);
+	}
+}
+
+export default withRouter(Layout);
+/*<Modal
 					show={this.state.toggleModal}
 					modalClosed={this.closeModal}
 					movie={this.state.movieOverview}
@@ -140,10 +148,4 @@ class Layout extends Component {
 					<MovieDetails
 						movie={this.state.movieOverview}
 					/>
-				</Modal>
-			</div>
-		);
-	}
-}
-
-export default withRouter(Layout);
+				</Modal>*/
