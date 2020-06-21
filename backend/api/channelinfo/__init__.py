@@ -40,9 +40,19 @@ class ChannelInfo(db.Model, Model):
                            "src": "https://yt3.ggpht.com/a/AATXAJwTUV61MSj2X7gY4UkyRfDbQ1xgQf4mAZfLZA=s800-c-k-c0xffffffff-no-rj-mo",
                            "type": "image/png",
                            "sizes": "800x800"
+                        },
+                        {
+                           "src": "https://yt3.ggpht.com/a/AATXAJwTUV61MSj2X7gY4UkyRfDbQ1xgQf4mAZfLZA=s800-c-k-c0xffffffff-no-rj-mo",
+                           "type": "image/png",
+                           "sizes": "192x192"
+                        },
+                        {
+                           "src": "https://yt3.ggpht.com/a/AATXAJwTUV61MSj2X7gY4UkyRfDbQ1xgQf4mAZfLZA=s800-c-k-c0xffffffff-no-rj-mo",
+                           "type": "image/png",
+                           "sizes": "512x512"
                         }
                     ],
-                "start_url": ".",
+                "start_url": "",
                 "display": "standalone",
                 "theme_color": "#000000",
                 "background_color": "#ffffff"
