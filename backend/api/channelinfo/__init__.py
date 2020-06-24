@@ -52,7 +52,7 @@ class ChannelInfo(db.Model, Model):
                            "sizes": "512x512"
                         }
                     ],
-                "start_url": "",
+                "start_url": "https://youtubeapp.nextcoder.es",
                 "display": "standalone",
                 "theme_color": "#000000",
                 "background_color": "#ffffff"

@@ -7,6 +7,7 @@ export const get_youtube_initial = () => dispatch => {
 	let subdomain = '';
 	let backend = '';
 	let port;
+	let j;
 	//https we are running online
 	//http test env
 	if (protocol === 'https:') {
