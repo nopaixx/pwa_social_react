@@ -19,7 +19,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^3.5.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "eslint-config-canonical": "^8.2.1",
     "jsdom": "^10.1.0",
     "react": "^15.5.4",
