@@ -20,7 +20,8 @@ export default function Header(props) {
 		backgroundSize: 'contain',
 		//		backgroundImage: `url(${videoThum})`,
 		backgroundPosition: 'center',
-		backgroundRepeat: 'no-repeat'
+		backgroundRepeat: 'no-repeat',
+		marginTop: '6rem'
 	};
 	const imageStyle = {
 		width: '100vw'
@@ -35,7 +36,6 @@ export default function Header(props) {
 		height: '390',
 		width: '640',
 		playerVars: {
-			// https://developers.google.com/youtube/player_parameters
 			autoplay: 1,
 			rel: 0
 		}
@@ -62,6 +62,7 @@ export default function Header(props) {
 						height="100%"
 						src={`https://www.youtube.com/embed/${props.movie.contentDetails.videoId}?rel=0&enablejsapi=1`}
 						frameborder="0"
+						allowfullscreen="true"
 					></iframe>
 				</div>
 			</div>
