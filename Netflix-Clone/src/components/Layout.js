@@ -25,7 +25,8 @@ class Layout extends Component {
 	makeAipCall = searchItem => {
 		const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`;
 
-		axios.get(url)
+		axios
+			.get(url)
 			.then(res => {
 				const results = res.data.results;
 				let movieImageUrl;
@@ -47,14 +48,10 @@ class Layout extends Component {
 						const movieComponent = (
 							<Movie
 								movieDetails={() =>
-									this.selectMovieHandler(
-										movie
-									)
+									this.selectMovieHandler(movie)
 								}
 								key={movie.id}
-								movieImage={
-									movieImageUrl
-								}
+								movieImage={movieImageUrl}
 								movie={movie}
 							/>
 						);
@@ -104,7 +101,8 @@ class Layout extends Component {
 			url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
 		}
 
-		axios.get(url)
+		axios
+			.get(url)
 			.then(res => {
 				const movieData = res.data;
 
@@ -120,7 +118,6 @@ class Layout extends Component {
 	};
 
 	render() {
-		console.log('AL-2Layout', this.props);
 		return (
 			<div>
 				<Navbar
@@ -140,12 +137,3 @@ class Layout extends Component {
 }
 
 export default withRouter(Layout);
-/*<Modal
-					show={this.state.toggleModal}
-					modalClosed={this.closeModal}
-					movie={this.state.movieOverview}
-				>
-					<MovieDetails
-						movie={this.state.movieOverview}
-					/>
-				</Modal>*/

@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import ChannelList from './ChannelList';
 import PinnedList from './PinnedList';
 
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
 
 class MainContent extends Component {
 	state = {
@@ -17,34 +17,41 @@ class MainContent extends Component {
 	render() {
 		const titleRecent = 'RECENT VIDEOS';
 		const titlePremium = 'PREMIUM CONTENT';
-		console.log("AL-2MainComponent",this.props)
 		return (
 			<div className="container">
-				<Header
-					movie={this.props.youtube.header}
-				/>
+				<Header movie={this.props.youtube.header} />
 				<div className="movieShowcase">
 					<PinnedList
 						title={titlePremium}
-						movies={this.props.youtube.premium_content}
+						movies={
+							this.props.youtube
+								.premium_content
+						}
+						id={'premium_content'}
 					/>
 					<PinnedList
 						title={titleRecent}
-						movies={this.props.youtube.latest_videos}
+						movies={
+							this.props.youtube
+								.latest_videos
+						}
+						id={'recent_videos'}
 					/>
 
 					{this.props.youtube.playlist_list.items.map(
-								element => {
-									return (
-										<ChannelList
-											play_list={
-												element
-											}
-										/>
-									);
-								}
-						  )
-					}
+						element => {
+							return (
+								<ChannelList
+									play_list={
+										element
+									}
+									id={
+										element.id
+									}
+								/>
+							);
+						}
+					)}
 				</div>
 				<Footer />
 			</div>

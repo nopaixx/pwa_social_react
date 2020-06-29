@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PlayLogo from '../static/images/play-button.svg';
 import AddLogo from '../static/images/add.svg';
 import YouTube from 'react-youtube';
+import YoutubeVideo from './YoutubeVideo';
 
 export default function Header(props) {
 	const [play, setPlay] = useState(false);
@@ -40,32 +41,11 @@ export default function Header(props) {
 			rel: 0
 		}
 	};
-	console.log('AL-2 Header', props, backgroundStyle);
 	return (
 		<header className="header" style={backgroundStyle}>
-			<div
-				class="hytPlayerWrapOuter"
-				style={{
-					height: '100%',
-					width: '100%'
-				}}
-			>
-				<div
-					class="hytPlayerWrap"
-					style={{
-						height: '100%',
-						width: '100%'
-					}}
-				>
-					<iframe
-						width="100%"
-						height="100%"
-						src={`https://www.youtube.com/embed/${props.movie.contentDetails.videoId}?rel=0&enablejsapi=1`}
-						frameborder="0"
-						allowfullscreen="true"
-					></iframe>
-				</div>
-			</div>
+			<YoutubeVideo
+				video_src={`https://www.youtube.com/embed/${props.movie.contentDetails.videoId}?rel=0&enablejsapi=1`}
+			/>
 		</header>
 	);
 }

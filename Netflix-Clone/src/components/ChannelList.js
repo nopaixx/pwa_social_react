@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { getMovieRows } from '../getMovie';
+import { withRouter } from 'react-router';
 
 class ChannelList extends Component {
 	componentWillMount() {
@@ -17,20 +18,25 @@ class ChannelList extends Component {
 				this.props.history
 			);
 		}
+		const url = `listview/${this.props.id}`;
 		return (
 			<>
-				<h1 className="movieShowcase__heading">
-					{this.props.play_list
-						? this.props.play_list.snippet
-								.localized.title
-						: ''}
-				</h1>
-				<div className="movieShowcase__container">
-					{movies}
+				<div
+					onClick={() => {
+						console.log('Al-click');
+						this.props.history.push(url);
+					}}
+				>
+					<h1 className="movieShowcase__heading">
+						{this.props.play_list
+							? `${this.props.play_list.snippet.localized.title} >`
+							: ''}
+					</h1>
 				</div>
+				<div className="movieShowcase__container">{movies}</div>
 			</>
 		);
 	}
 }
 
-export default ChannelList;
+export default withRouter(ChannelList);
