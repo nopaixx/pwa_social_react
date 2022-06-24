@@ -21,7 +21,7 @@
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
     "eslint-config-canonical": "^8.2.1",
-    "jsdom": "^10.1.0",
+    "jsdom": "^16.5.0",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4"
